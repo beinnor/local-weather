@@ -1,0 +1,23 @@
+{
+"coord":{"lon":139,"lat":35},
+
+"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F02n.png?1499366020844"}],
+
+"base":"stations",
+
+"main":{"temp":20.53,"pressure":1021.04,"humidity":88,"temp_min":20.53,"temp_max":20.53,"sea_level":1030.35,"grnd_level":1021.04},
+
+"wind":{"speed":6.23,"deg":236.503},
+
+"clouds":{"all":8},
+
+"dt":1525560120,
+
+"sys":{"message":0.004,"country":"JP","sunrise":1525463327,"sunset":1525512782},
+
+"id":1851632,
+
+"name":"Shuzenji",
+
+"cod":200
+}
