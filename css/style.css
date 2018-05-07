@@ -1,0 +1,55 @@
+/* Style */
+
+html, body {
+  background: var(--background);
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  background: grey; /* temporary */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: repeat(5, 1fr);
+  grid-template-areas: 
+    "location location"
+    "weather temperature"
+    "weather humidity"
+    "wind_speed wind_direction"
+    "toggle toggle";
+}
+
+#location {
+  grid-area: location;
+}
+
+#weather {
+  grid-area: weather;
+}
+
+#temperature {
+  grid-area: temperature;
+}
+
+#humidity {
+  grid-area: humidity;
+}
+
+#wind_speed {
+  grid-area: wind_speed;
+}
+
+#wind_direction {
+  grid-area: wind_direction;
+}
+
+#toggle {
+  grid-area: toggle;
+}

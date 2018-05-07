@@ -1,8 +1,10 @@
 const locationOutput = document.getElementById("location");
 const weatherOutput = document.getElementById("weather");
-const windOutput = document.getElementById("wind");
+const windSpeedOutput = document.getElementById("wind_speed");
+const windDirectionOutput = document.getElementById("wind_direction");
 const temperatureOutput = document.getElementById("temperature");
 const humidityOutput = document.getElementById("humidity");
+const toggleBtn = document.getElementById("toggle");
 
 let longitude = 0;
 let latitude = 0;
@@ -62,15 +64,19 @@ function getWeatherFromAPI() {
 }
 
 function writeHTML() {
-  locationOutput.innerHTML = `<p>${weather.name}, ${weather.sys.country}</p>`;
+  locationOutput.innerHTML = `<p>${weather.name}, ${weather.sys.country}</p><p class="more_info">${longitude} ${latitude}</p>`;
 
-  weatherOutput.innerHTML = `<p>${weather.weather[0].main}</p>
-    <img src="${weather.weather[0].icon}">`;
+  weatherOutput.innerHTML = `<p>${icon_map[weather.weather[0].id]}</p> <p class="more_info">${weather.weather[0].main}</p>`;
 
 
-  windOutput.innerHTML = `<p>Windspeed: ${weather.wind.speed}, Direction: ${weather.wind.deg}`;
+  windSpeedOutput.innerHTML = `<p>Windspeed: ${weather.wind.speed}</p>`;
+  windDirectionOutput.innerHTML = `<p>Direction: ${weather.wind.deg}</p>`;
+
   temperatureOutput.innerHTML = `<p>${weather.main.temp} celcius</p>`;
-  humidityOutput.innerHTML = `humidity: ${weather.main.humidity}`;
+  humidityOutput.innerHTML = `<p>humidity: ${weather.main.humidity}</p>`;
+
+  console.log(icon_map[weather.weather[0].id]);
+  console.log(weather.weather[0].id);
 }
 
 getLocation();
