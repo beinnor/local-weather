@@ -1,10 +1,12 @@
 const locationOutput = document.getElementById("location");
 const weatherOutput = document.getElementById("weather");
-const windSpeedOutput = document.getElementById("wind_speed");
-const windDirectionOutput = document.getElementById("wind_direction");
+const windSpeedOutput = document.getElementById("windSpeed");
+const windDirectionOutput = document.getElementById("windDirection");
 const temperatureOutput = document.getElementById("temperature");
 const humidityOutput = document.getElementById("humidity");
-const toggleBtn = document.getElementById("toggle");
+const weatherText = document.getElementById("weatherText");
+let temperatureFormat = "celsius";
+let beaufort = 0;
 
 let longitude = 0;
 let latitude = 0;
@@ -63,20 +65,66 @@ function getWeatherFromAPI() {
   xhr.send();
 }
 
+
+
 function writeHTML() {
-  locationOutput.innerHTML = `<p>${weather.name}, ${weather.sys.country}</p><p class="more_info">${longitude} ${latitude}</p>`;
+  locationOutput.innerHTML = `<p>${weather.name}, ${getCountryName(weather.sys.country)}</p>`;
 
-  weatherOutput.innerHTML = `<p>${icon_map[weather.weather[0].id]}</p> <p class="more_info">${weather.weather[0].main}</p>`;
+  weatherOutput.innerHTML = `<p>${iconMap[weather.weather[0].id]}</p>`;
 
+  windSpeedOutput.innerHTML = `<p><i class="wi wi-wind-beaufort-${getBeaufort(weather.wind.speed)}"></i></p>`;
+  windDirectionOutput.innerHTML = `<p><i class="wi wi-wind towards-${weather.wind.deg}-deg"></i></p>`;
 
-  windSpeedOutput.innerHTML = `<p>Windspeed: ${weather.wind.speed}</p>`;
-  windDirectionOutput.innerHTML = `<p>Direction: ${weather.wind.deg}</p>`;
+  temperatureOutput.innerHTML = `<p>${weather.main.temp} <i class="wi wi-${temperatureFormat}"></i></p>`;
+  humidityOutput.innerHTML = `<p>${weather.main.humidity} <i class="wi wi-humidity"></i></p>`;
 
-  temperatureOutput.innerHTML = `<p>${weather.main.temp} celcius</p>`;
-  humidityOutput.innerHTML = `<p>humidity: ${weather.main.humidity}</p>`;
-
-  console.log(icon_map[weather.weather[0].id]);
-  console.log(weather.weather[0].id);
+  weatherText.innerHTML = `<p>${weather.weather[0].main}, ${weather.weather[0].description}, temperature ${weather.main.temp}&#8451;, humidity ${weather.main.humidity}%,
+    wind ${weather.wind.speed} m/s from ${degreesToCardinal(weather.wind.deg)}.`;
 }
+
+function getBeaufort(speed) {
+  if (speed >= 32.7) {
+    return 12;
+  }
+  if (speed >= 28.5) {
+    return 11;
+  }
+  if (speed >= 24.5) {
+    return 10;
+  }
+  if (speed >= 20.8) {
+    return 9;
+  }
+  if (speed >= 17.2) {
+    return 8;
+  }
+  if (speed >= 13.9) {
+    return 7;
+  }
+  if (speed >= 10.8) {
+    return 6;
+  }
+  if (speed >= 8) {
+    return 5;
+  }
+  if (speed >= 5.5) {
+    return 4;
+  }
+  if (speed >= 3.4) {
+    return 3;
+  }
+  if (speed >= 1.6) {
+    return 2;
+  }
+  if (speed >= 0.3) {
+    return 1;
+  }
+  if (speed < 0.3) {
+    return 0;
+  }
+}
+
+
+
 
 getLocation();

@@ -5,56 +5,77 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="img/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/weather-icons.css">
+  <link rel="stylesheet" href="css/weather-icons-wind.css">
   <title>Local Weather</title>
 </head>
 
 <body>
 
   <header>
-
+    <h1>Local Weather</h1>
   </header>
+
 
   <main>
 
     <div id="location">
-
+      <p>
+        <i class="wi wi-na"></i>
+      </p>
     </div>
 
     <div id="weather">
-
+      <p>
+        <i class="wi wi-na"></i>
+      </p>
     </div>
 
-    <div id="wind_speed">
-
+    <div id="windSpeed">
+      <p>
+        <i class="wi wi-na"></i>
+      </p>
     </div>
 
-    <div id="wind_direction">
+    <div id="windDirection">
+      <p>
+        <i class="wi wi-na"></i>
+      </p>
 
     </div>
 
     <div id="temperature">
-
+      <p>
+        <i class="wi wi-na"></i>
+      </p>
     </div>
 
     <div id="humidity">
-
+      <p>
+        <i class="wi wi-na"></i>
+      </p>
     </div>
 
-    <div id="toggle">
-      toggle
+    <div id="weatherText">
+      <p>Waiting for weather data...</p>
     </div>
 
 
   </main>
 
+
+
+
   <footer>
-    <p>by Beinnor 2018</p>
-    <p></p>
+    <p>by
+      <a href="http://beinnor.github.io/">Beinnor</a> 2018
+    </p>
+
   </footer>
-  <script src="js/weather_types.js"></script>
+  <script src="js/helpers.js"></script>
   <script src="js/script.js"></script>
 </body>
 
