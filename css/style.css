@@ -168,6 +168,52 @@ a {
   }
 }
 
+@media only screen and (max-height: 320px) {
+  :root {
+    font-size: 10px;
+  }
+  main {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    grid-template-areas: "location location" "weather temperature" "weather humidity" "weather windSpeed" "weather windDirection" "weatherText weatherText" "toggleMetric toggleMetric";
+  }
+  header {
+    border-bottom: 1px dashed var(--textColor);
+  }
+  header h1 {
+    font-size: 1rem;
+  }
+  footer {
+    border-top: 1px dashed var(--textColor);
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  :root {
+    font-size: 10px;
+  }
+  main {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    grid-template-areas: "location location" "weather temperature" "weather humidity" "weather windSpeed" "weather windDirection" "weatherText weatherText" "toggleMetric toggleMetric";
+  }
+  header {
+    border-bottom: 1px dashed var(--textColor);
+  }
+  header h1 {
+    font-size: 1rem;
+  }
+  footer {
+    border-top: 1px dashed var(--textColor);
+  }
+}
+
 /* Toggle switch, from: https://proto.io/freebies/onoff/ */
 
 .onoffswitch {
