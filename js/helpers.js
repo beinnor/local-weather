@@ -1,4 +1,6 @@
-iconMap = {
+/* Long and ugly helpers hides here */
+
+let iconMap = {
   // Group 2xx: Thunderstorm
   "200": '<i class="wi wi-thunderstorm"></i>', // "thunderstorm with light rain"
   "201": '<i class="wi wi-thunderstorm"></i>', // "thunderstorm with rain"
@@ -352,4 +354,55 @@ function getCountryName(countryCode) {
   } else {
     return countryCode;
   }
+}
+
+function getBeaufort(speed) {
+  if (speed >= 32.7) {
+    return 12;
+  }
+  if (speed >= 28.5) {
+    return 11;
+  }
+  if (speed >= 24.5) {
+    return 10;
+  }
+  if (speed >= 20.8) {
+    return 9;
+  }
+  if (speed >= 17.2) {
+    return 8;
+  }
+  if (speed >= 13.9) {
+    return 7;
+  }
+  if (speed >= 10.8) {
+    return 6;
+  }
+  if (speed >= 8) {
+    return 5;
+  }
+  if (speed >= 5.5) {
+    return 4;
+  }
+  if (speed >= 3.4) {
+    return 3;
+  }
+  if (speed >= 1.6) {
+    return 2;
+  }
+  if (speed >= 0.3) {
+    return 1;
+  }
+  if (speed < 0.3) {
+    return 0;
+  }
+}
+
+function meterSecToMilesHour(mps) {
+  return Math.round(mps * 3600 / 1610.3*1000)/1000;
+}
+
+function celsiusToFarhenheit (degrees) {
+  // ℉=(℃*1.8)+32
+  return (degrees * 1.8) + 32;
 }

@@ -1,12 +1,10 @@
 /* Style */
 
 :root {
-  --color1: #A8D8FF;
-  --color2: #222233;
-  --color3: #FFFFFF;
-  --backgroundColor: var(--color3);
-  --cardColor: var(--color2);
-  --textColor: var(--color1);
+  --backgroundColor: #e7eff6;
+  --cardColor: #adcbe3;
+  --textColor: #2a4d69;
+  --toggleColor: #4b86b4;  
   font-size: 16px;
 }
 
@@ -42,7 +40,7 @@ main {
   margin: 10px;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: repeat(5, 1fr);
-  grid-template-areas: "location location" "weather temperature" "weather humidity" "weather windSpeed" "weather windDirection" "weatherText weatherText";
+  grid-template-areas: "location location" "weather temperature" "weather humidity" "weather windSpeed" "weather windDirection" "weatherText weatherText" "toggleMetric toggleMetric";
 }
 
 #location {
@@ -90,6 +88,15 @@ main {
   text-align: center;
 }
 
+#weatherText p:first-letter {
+  text-transform: capitalize;
+}
+
+#toggleMetric {
+  grid-area: toggleMetric;
+  margin: auto;
+}
+
 header {
   width: 100%;
   background: var(--cardColor);
@@ -125,7 +132,13 @@ a {
     border-radius: 0;
     box-shadow: none;
     margin: 0;
-    grid-template-areas: "location location" "weather temperature" "weather humidity" "windSpeed windDirection" "weatherText weatherText";
+    grid-template-areas: "location location" "weather temperature" "weather humidity" "windSpeed windDirection" "weatherText weatherText" "toggleMetric toggleMetric";
+  }
+  header {
+    border-bottom: 1px dashed var(--textColor);
+  }
+  footer {
+    border-top: 1px dashed var(--textColor);
   }
 }
 
@@ -139,6 +152,87 @@ a {
     border-radius: 0;
     box-shadow: none;
     margin: 0;
-    grid-template-areas: "location location" "weather temperature" "weather humidity" "weather windSpeed" "weather windDirection" "weatherText weatherText";
+    grid-template-areas: "location location" "weather temperature" "weather humidity" "weather windSpeed" "weather windDirection" "weatherText weatherText" "toggleMetric toggleMetric";
   }
+}
+
+/* Toggle switch, from: https://proto.io/freebies/onoff/ */
+
+.onoffswitch {
+  position: relative;
+  width: 70px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid var(--textColor);
+  border-radius: 5px;
+}
+
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 14px;
+  color: var(--backgroundColor);
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+  content: "\2103";
+  padding-left: 10px;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+}
+
+.onoffswitch-inner:after {
+  content: "\2109";
+  padding-right: 10px;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  text-align: right;
+}
+
+.onoffswitch-switch {
+  display: block;
+  width: 21px;
+  margin: 4.5px;
+  background: var(--toggleColor);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 36px;
+  border: 2px solid var(--textColor);
+  border-radius: 5px;
+  transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
+  right: 0px;
 }
