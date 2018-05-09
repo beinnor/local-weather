@@ -137,6 +137,9 @@ a {
   header {
     border-bottom: 1px dashed var(--textColor);
   }
+  header h1 {
+    font-size: 1rem;
+  }
   footer {
     border-top: 1px dashed var(--textColor);
   }
@@ -153,6 +156,15 @@ a {
     box-shadow: none;
     margin: 0;
     grid-template-areas: "location location" "weather temperature" "weather humidity" "weather windSpeed" "weather windDirection" "weatherText weatherText" "toggleMetric toggleMetric";
+  }
+  header {
+    border-bottom: 1px dashed var(--textColor);
+  }
+  header h1 {
+    font-size: 1rem;
+  }
+  footer {
+    border-top: 1px dashed var(--textColor);
   }
 }
 
